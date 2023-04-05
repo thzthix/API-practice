@@ -33,12 +33,20 @@
       getChart();
       async function getChart() {
         const data = await getData();
-        const ctx = document.getElementById("myChart");
+        const ctx = document.getElementById("myChart").getContext("2d");
         new Chart(ctx, {
           type: "line",
 
           data: {
             datasets: [
+              {
+                label: "Global Temperature in °C",
+                data: data.temps,
+                fill: false,
+                borderColor: "rgba(99, 255, 132, 1)",
+                backgroundColor: "rgba(99, 255, 132, 0.5)",
+                borderWidth: 1,
+              },
               {
                 label: "NHem Temperature in °C",
                 data: data.NHems,
@@ -78,6 +86,7 @@
         const NHems = [];
         const xs = [];
         const SHems = [];
+        const temps = [];
         // const response = await fetch("./ZonAnn.Ts+dSST.csv");
         // const data = await response.text();
 
@@ -104,14 +113,16 @@
         table.forEach((rows) => {
           const columns = rows.split(",");
           const year = columns[0];
+          const temp = columns[1];
           const NHem = columns[2];
           const SHem = columns[3];
           xs.push(year);
+          temps.push(parseFloat(temp) + 14);
           NHems.push(parseFloat(NHem) + 14);
           SHems.push(parseFloat(SHem) + 14);
         });
 
-        return { NHems, SHems, xs };
+        return { temps, NHems, SHems, xs };
       }
     </script>
   </body>
