@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coding Train: Data and APIs Project 1</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  </head>
+  <body>
+    <h1>Global Average Temperatures 1880-2018</h1>
+    Open the JavaScript Console to see the output.
+    <canvas id="myChart" width="800" height="400"></canvas>
+    <script>
+      // Data from: https://data.giss.nasa.gov/gistemp/
+      // Mean from: https://earthobservatory.nasa.gov/world-of-change/DecadalTemp
+
+      // getData()
+
+      // async function getData() {
+      //   // const response = await fetch('testdata.csv');
+      //   const response = await fetch('ZonAnn.Ts+dSST.csv');
+      //   const data = await response.text();
+
+      //   const table = data.split('\n').slice(1);
+      //   table.forEach(row => {
+      //     const cols = row.split(',');
+      //     const year = cols[0]
+      //     const temp = cols[1]
+      //     console.log(year, temp)
+      //   });
+      // }
+      getChart();
+      async function getChart() {
+        const data = await getData();
+        const ctx = document.getElementById("myChart");
+        new Chart(ctx, {
+          type: "line",
+
+          data: {
+            datasets: [
+              {
+                label: "NHem Temperature in °C",
+                data: data.NHems,
+                borderWidth: 1,
+                fill: false,
+                backgroundColor: "rgba(255, 99, 132, 0.2)",
+                borderColor: "rgba(255, 99, 132, 0.2)",
+              },
+              {
+                label: "SHem Temperature in °C",
+                data: data.SHems,
+                borderWidth: 1,
+                fill: false,
+                backgroundColor: "rgba(153, 102, 255, 0.2)",
+                borderColor: "rgba(153, 102, 255, 0.2)",
+              },
+            ],
+            labels: data.xs,
+          },
+
+          options: {
+            scales: {
+              y: {
+                ticks: {
+                  // Include a dollar sign in the ticks
+                  callback: function (value, index, ticks) {
+                    return value + "°C";
+                  },
+                },
+              },
+            },
+          },
+        });
+      }
+
+      async function getData() {
+        const NHems = [];
+        const xs = [];
+        const SHems = [];
+        // const response = await fetch("./ZonAnn.Ts+dSST.csv");
+        // const data = await response.text();
+
+        // const table = data.split("\n").slice(1);
+        // table.forEach((row) => {
+        //   const columns = row.split(",");
+        //   const year = columns[0];
+        //   const temp = columns[1];
+        //   console.log(year, temp);
+        // });
+        // const response = await fetch("./ZonAnn.Ts+dSST.csv");
+        // const data = await response.text();
+
+        // const table = data.split("\n").slice(1);
+        // table.forEach((rows) => {
+        //   const columns = rows.split(",");
+        //   const year = columns[0];
+        //   const temp = columns[4];
+        //   console.log(year, temp);
+        // });
+        const response = await fetch("./ZonAnn.Ts+dSST.csv");
+        const data = await response.text();
+        const table = data.split("\n").slice(1);
+        table.forEach((rows) => {
+          const columns = rows.split(",");
+          const year = columns[0];
+          const NHem = columns[2];
+          const SHem = columns[3];
+          xs.push(year);
+          NHems.push(parseFloat(NHem) + 14);
+          SHems.push(parseFloat(SHem) + 14);
+        });
+
+        return { NHems, SHems, xs };
+      }
+    </script>
+  </body>
+</html>
