@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Fetch JSON from API</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+    <style>
+      #issMap {
+        height: 180px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Where is the ISS?</h1>
+
+    <p>
+      latitude: <span id="lat"></span>°<br />
+      longitude: <span id="lon"></span>°<br />
+      velocity:<span id="vel"></span>km/h
+    </p>
+    <div id="issMap"></div>
+
+    <script>
+      // const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+
+      // async function getISS() {
+      //   const response = await fetch(api_url);
+      //   const data = await response.json();
+      //   const { latitude, longitude } = data;
+
+      //   document.getElementById('lat').textContent = latitude.toFixed(2);
+      //   document.getElementById('lon').textContent = longitude.toFixed(2);
+      // }
+
+      // getISS();
+
+      //Making a Map and tiles
+      const map = L.map("issMap");
+      map.setView([0, 0], 1);
+      const attribution =
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+      const api_url = "https://api.wheretheiss.at/v1/satellites/25544";
+      const tileUrl = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
+
+      const tiles = L.tileLayer(tileUrl, { attribution }).addTo(map);
+
+      //Making a marker with a custom icon
+      const IssIcon = L.icon({
+        iconUrl: "iss200.png",
+        iconSize: [50, 32],
+        iconAnchor: [25, 16],
+        popupAnchor: [-3, -76],
+      });
+
+      const marker = L.marker([0, 0], { icon: IssIcon }).addTo(map);
+      const popUp = L.popup([0, 0], {
+        content: "<p>Hello world!<br />This is a nice popup.</p>",
+      }).openOn(map);
+      let firstTime = true;
+      async function getIss() {
+        const response = await fetch(api_url);
+        const data = await response.json();
+        const { latitude, longitude, velocity } = data;
+        // L.marker([latitude, longitude]).addTo(map);
+        marker.setLatLng([latitude, longitude]);
+        if (firstTime) {
+          map.setView([latitude, longitude], 5);
+          firstTime = false;
+        }
+
+        document.getElementById("lat").textContent = latitude.toFixed(2);
+        document.getElementById("lon").textContent = longitude.toFixed(2);
+        document.getElementById("vel").textContent = velocity.toFixed(2);
+        const popUpContent = `<p>latitude:${latitude}, longitude:${longitude}</p>`;
+        popUp
+          .setLatLng([latitude, longitude])
+          .setContent(popUpContent)
+          .openOn(map);
+
+        console.log(data);
+      }
+      setInterval(getIss, 1000);
+    </script>
+  </body>
+</html>
