@@ -15,4 +15,5 @@ const getQuote = async () => {
   author.classList.add("fade");
 };
 
+window.addEventListener("load", getQuote);
 getBtn.addEventListener("click", getQuote);
