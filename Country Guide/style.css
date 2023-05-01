@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --FF: "Poppins", sans-serif;
+  --bg-color: #537fe7;
+  --white: #ffffff;
+  --gray: #aaaaaa;
+}
+body {
+  font-family: var(--FF);
+  background-color: var(--bg-color);
+}
+.container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background-color: var(--white);
+  width: 80vw;
+  max-width: 37.5em;
+  padding: 3rem 2rem;
+  border-radius: 0.62em;
+  box-shadow: 0 1.25em 1.8em rgba(0, 0, 0, 0.1);
+}
+.search-box {
+  display: grid;
+  grid-template-columns: 9fr 3fr;
+  gap: 1.25em;
+  margin-bottom: 2rem;
+}
+
+#search-input {
+  border: none;
+  width: 100%;
+  border-bottom: 2px solid var(--bg-color);
+  outline: none;
+  font-size: 1rem;
+  font-family: var(--FF);
+  padding: 0.6rem;
+  color: #222a43;
+}
+
+#search-btn {
+  border: none;
+  outline: none;
+  font-family: var(--FF);
+  font-size: 1rem;
+  background-color: var(--bg-color);
+  color: var(--white);
+  padding: 0.8em 0;
+  border-radius: 1.5em;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+#search-btn:hover {
+  background-color: #537fe7cf;
+}
+#search-btn:active {
+  background-color: #4474e4;
+}
+.img-and-name {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.img-and-name img {
+  margin-bottom: 0.6rem;
+  width: 45%;
+  min-width: 7.5em;
+}
+.img-and-name h3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.details {
+  font-size: 1rem;
+}
+.details p {
+  margin-bottom: 1rem;
+}
+.detail {
+  font-weight: 500;
+  margin-right: 0.2rem;
+}
+.detail-inform {
+  font-weight: 400;
+  color: #686767;
+}
+.message {
+  color: rgb(226, 33, 33);
+  font-size: 1.2rem;
+  text-align: center;
+}
