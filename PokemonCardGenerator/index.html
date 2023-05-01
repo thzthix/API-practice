@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Card Generator</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="hp-wrapper">HP <span class="hp"></span></div>
+        <div class="img-container">
+          <img src="./fubao.jpg" alt="" id="img" />
+        </div>
+        <h3 id="name"></h3>
+        <div class="type-wrapper"></div>
+        <div class="details-wrapper">
+          <div class="detail">
+            <span class="detail-number" id="attack"></span
+            ><span class="detail-name">Attack</span>
+          </div>
+          <div class="detail">
+            <span class="detail-number" id="defense"></span
+            ><span class="detail-name">Defense</span>
+          </div>
+          <div class="detail">
+            <span class="detail-number" id="speed"></span
+            ><span class="detail-name">speed</span>
+          </div>
+        </div>
+      </div>
+
+      <button id="generate-btn">Generate</button>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
