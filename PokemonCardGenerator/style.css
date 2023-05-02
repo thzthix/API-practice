@@ -54,18 +54,33 @@ body {
   box-shadow: 0 1.25em 1.8em rgba(52, 51, 51, 0.088);
   margin-bottom: 1.2em;
 }
+
 .img-container {
   /* background: radial-gradient(
     circle at 50% 0%,
     var(--black) 52%,
     var(--white) 36%
   ); */
+  /* background: radial-gradient(
+    circle at 0% 0%,
+    var(--black) 52%,
+    var(--white) 36%
+  ); */
   text-align: center;
   border-radius: 0.8em;
   margin-bottom: 0.8rem;
+
+  /* opacity: 0;
+  transition: opacity 3s; */
   /* display: flex;
   justify-content: center;
   align-items: center; */
+}
+/* .fade {
+  opacity: 1;
+} */
+.animating {
+  animation: fadebackground 0.3s;
 }
 .hp-wrapper {
   position: absolute;
@@ -144,4 +159,24 @@ body {
 }
 #generate-btn:active {
   background-color: #221d26;
+}
+@keyframes fadebackground {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+    /* background-position: 20% 100%; */
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#myDIV {
+  width: 300px;
+  height: 200px;
+  border: 1px solid black;
+  background-image: url("smiley.gif");
+  background-position: top left;
+  animation: mymove 5s infinite;
 }
