@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg-color: #fdb827;
+  --white: #ffff;
+  --black: #0a1931;
+  --FF: "Poppins", sans-serif;
+}
+input,
+button {
+  font-family: var(--FF);
+  border: none;
+  outline: none;
+}
+button {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--black);
+  background-color: var(--bg-color);
+  text-transform: capitalize;
+  transition: background-color 0.1s;
+}
+
+button:hover {
+  background-color: #fcc246;
+}
+button:active {
+  background-color: #fcb61d;
+}
+body {
+  font-family: var(--FF);
+  background-color: var(--bg-color);
+
+  text-align: center;
+  height: 100vh;
+}
+.container {
+  background-color: var(--white);
+  position: relative;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 2%;
+  width: 65vmin;
+  border-radius: 6px;
+  box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.115);
+  padding: 1rem;
+}
+
+#detail-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#search-form {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0 1.35rem 3rem;
+  width: 100%;
+  align-items: center;
+}
+#search-form label {
+  width: 65%;
+}
+#search-form input {
+  font-size: 0.9rem;
+  padding: 0.35rem;
+  border-bottom: 2px solid var(--black);
+  color: var(--black);
+  font-weight: 400;
+  width: 100%;
+}
+#search-form button {
+  font-size: 0.8rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 4px;
+}
+
+.name-and-country {
+  background-color: var(--bg-color);
+  color: var(--black);
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+#name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+#country {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+#ingredients-ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 4rem;
+  grid-row-gap: 0.8rem;
+  margin-bottom: 4rem;
+  padding: 2rem;
+}
+#view-btn {
+  position: absolute;
+  padding: 0.6rem 0.4rem;
+  border-radius: 4px;
+  bottom: 1rem;
+  right: 2rem;
+}
+#close-btn {
+  position: absolute;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  top: 1rem;
+  right: 1rem;
+}
+#recipe-p {
+  margin-top: 3rem;
+}
+.message {
+  color: rgb(237, 44, 44);
+  font-size: 1rem;
+  text-align: center;
+}
+img {
+  width: 200px;
+}
+.hide {
+  display: none !important;
+}
