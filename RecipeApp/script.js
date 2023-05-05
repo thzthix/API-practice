@@ -25,7 +25,7 @@ const getIngredients = (data) => {
 };
 
 const setRecipe = (recipe) => {
-  recipeContainer.innerHTML = `<p id="recipe-p">${recipe}</p>`;
+  recipeContainer.innerHTML = `<pre id="recipe-p">${recipe}</pre>`;
 };
 const onSubmitDishName = async (event) => {
   event.preventDefault();
