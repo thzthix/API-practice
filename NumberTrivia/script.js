@@ -29,10 +29,10 @@ const getFact = async (event) => {
     const text = await response.text();
 
     sketchresult(inputValue, text);
-    console.log(json);
   } catch {
     const inputValue = document.getElementById("search-input").value;
     resultContainer.innerHTML = `<p class="message"> Please enter a number between 0 to 300.</p>`;
+    console.log(inputValue);
   }
 };
 const getRandom = async (event) => {
@@ -44,8 +44,9 @@ const getRandom = async (event) => {
     console.log(json);
   } catch {
     const inputValue = document.getElementById("search-input").value;
-   resultContainer.innerHTML = `<p class="message"> Please enter a number between 0 to 300.</p>`;
+    resultContainer.innerHTML = `<p class="message"> Please enter a number between 0 to 300.</p>`;
   }
 };
 searchForm.addEventListener("submit", getFact);
 getRandBtn.addEventListener("click", getRandom);
+window.addEventListener("load", getRandom);
