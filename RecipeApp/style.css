@@ -89,6 +89,8 @@ body {
   padding: 0.5rem;
   text-align: center;
   text-transform: capitalize;
+  margin: -4.3em 0 0 0;
+  position: relative;
 }
 #name {
   font-size: 1.1rem;
