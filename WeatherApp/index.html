@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="right-circle"></div>
+      <div id="left-circle"></div>
+      <div class="wrapper">
+        <form id="search-form">
+          <label for="search-input">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Enter a city name.."
+            />
+          </label>
+          <button id="search-btn">search</button>
+        </form>
+        <div id="result">
+          <h2 id="name">Fubao</h2>
+          <div class="details">
+            <p id="detail-1">clouds</p>
+            <p id="detail-2">Broken clouds</p>
+            <img src="./fubao.jpg" alt="sample img" />
+            <div class="temps-div">
+              <div id="temps-min">
+                <span>min</span>
+                <span id="min">18.13&#176;</span>
+              </div>
+              <div id="temps-max">
+                <span>min</span>
+                <span id="max">20.87&#176;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
