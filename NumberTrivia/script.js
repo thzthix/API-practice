@@ -32,7 +32,7 @@ const getFact = async (event) => {
     console.log(json);
   } catch {
     const inputValue = document.getElementById("search-input").value;
-    console.log(`${URL}${inputValue}`);
+    resultContainer.innerHTML = `<p class="message"> Please enter a number between 0 to 300.</p>`;
   }
 };
 const getRandom = async (event) => {
@@ -44,7 +44,7 @@ const getRandom = async (event) => {
     console.log(json);
   } catch {
     const inputValue = document.getElementById("search-input").value;
-    console.log(`${URL}${inputValue}`);
+   resultContainer.innerHTML = `<p class="message"> Please enter a number between 0 to 300.</p>`;
   }
 };
 searchForm.addEventListener("submit", getFact);
