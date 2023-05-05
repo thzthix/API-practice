@@ -19,7 +19,7 @@ const getFact = async (event) => {
     } else if (
       parseInt(inputValue) > 300 ||
       parseInt(inputValue) < 0 ||
-      typeof inputValue.trim() !== Number
+      typeof parseInt(inputValue.trim()) !== "number"
     ) {
       resultContainer.innerHTML = `<p class="message"> Please enter a number between 0 to 300.</p>`;
 
