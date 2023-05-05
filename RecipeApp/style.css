@@ -122,6 +122,9 @@ body {
 }
 #recipe-p {
   margin-top: 3rem;
+    white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 2.5rem 1.2rem;
 }
 .message {
   color: rgb(237, 44, 44);
