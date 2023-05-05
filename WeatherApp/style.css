@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --FF: "Poppins", sans-serif;
+  --light-blue: #8fc3ff;
+  --dark-blue: #3972ce;
+  --opacity-blue: hsla(216, 9%, 89%, 0.01);
+  --white: #fff;
+}
+input,
+button {
+  border: none;
+  outline: none;
+  font-family: var(--FF);
+}
+button {
+  text-transform: capitalize;
+}
+img {
+  width: 50px;
+}
+body {
+  height: 100vh;
+  background: linear-gradient(
+    to right bottom,
+    var(--light-blue),
+    var(--dark-blue)
+  );
+}
+.container {
+  position: relative;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background-color: var(--opacity-blue);
+  width: 400px;
+  padding: 3rem 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  z-index: 1;
+  background-color: transparent;
+  border-radius: 6px;
+}
+
+/* #blur {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  filter: blur(100px);
+  z-index: -1;
+  background: transparent;
+} */
+#right-circle {
+  position: absolute;
+  display: inline-block;
+  top: 5%;
+  right: -25%;
+  width: 50%;
+  height: 50%;
+  background-color: #d5e3f44a;
+  border-radius: 50%;
+  z-index: -1;
+}
+#left-circle {
+  position: absolute;
+  display: inline-block;
+  bottom: -15%;
+  left: -10%;
+  width: 50%;
+  height: 50%;
+  background-color: #d5e3f44a;
+  border-radius: 50%;
+  z-index: -1;
+}
+#search-form {
+  display: flex;
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 8fr 2fr;
+  gap: 1rem;
+}
+
+#search-form input {
+  background: transparent;
+  padding: 0.4rem;
+  font-size: 0.9rem;
+  width: 100%;
+  border-bottom: 2px solid var(--white);
+}
+::placeholder {
+  color: var(--white);
+  font-weight: 300;
+}
+/* .container::before {
+  background-color: #d5e3f44a;
+  width: 50%;
+  position: absolute;
+  top: 5%;
+  right: -25%;
+  height: 50%;
+  content: "";
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  z-index: -2;
+}
+.container::after {
+  background-color: #d5e3f44a;
+  width: 50%;
+  position: absolute;
+  bottom: -15%;
+  left: -10%;
+  height: 50%;
+  content: "";
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  z-index: -2;
+} */
