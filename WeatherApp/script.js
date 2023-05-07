@@ -3,9 +3,9 @@ const searchBtn = document.getElementById("search-btn");
 const searchInput = document.getElementById("search-input");
 const result = document.getElementById("result");
 
-const API_KEY = "5e308f3b1e13d1bcadbc2588c9dffb94";
+
 const FETCH_URL = `https://api.openweathermap.org/data/2.5/weather?units=metric`;
-let searhValue = "";
+let searhValue = "d";
 
 const getData = async (event) => {
   event.preventDefault();
