@@ -3,9 +3,9 @@ const searchBtn = document.getElementById("search-btn");
 const searchInput = document.getElementById("search-input");
 const result = document.getElementById("result");
 
-
+// const API_KEY = "5e308f3b1e13d1bcadbc2588c9dffb94";
 const FETCH_URL = `https://api.openweathermap.org/data/2.5/weather?units=metric`;
-let searhValue = "d";
+let searhValue = "";
 
 const getData = async (event) => {
   event.preventDefault();
@@ -37,9 +37,9 @@ const getData = async (event) => {
     <p id="detail-1">${main}</p>
     <p id="detail-2">${description}</p>
   </div>
-  <div class="icon-container">
+ 
   <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="Weather icon"/>
-  </div>
+
   <div class="temps-div">
     <h3><span id="temp-h3">${temp}</span>&#176;</h3>
     <div class="temps-details">
@@ -54,9 +54,8 @@ const getData = async (event) => {
     </div>
   </div>`;
   } catch {
-    result.innerHTML = '<p class="message">Invalid Input</p>';
+    result.innerHTML = '<p class="message">City not found</p>';
   }
 };
 
 searchForm.addEventListener("submit", getData);
-
