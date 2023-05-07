@@ -11,6 +11,7 @@
   --light-blue: #8fc3ff;
   --dark-blue: #3972ce;
   --opacity-blue: hsla(216, 9%, 89%, 0.01);
+  --opacity-blue-2: rgba(255, 255, 255, 0.1);
   --white: #fff;
 }
 input,
@@ -26,30 +27,28 @@ button {
 
 body {
   height: 100vh;
-  background: linear-gradient(
-    to right bottom,
-    var(--light-blue),
-    var(--dark-blue)
-  );
+  background: linear-gradient(135deg, var(--light-blue), var(--dark-blue));
 }
 .container {
-  position: relative;
+  position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   background-color: var(--opacity-blue);
-  width: 400px;
-  border-radius: 6px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  width: 90vw;
+  max-width: 28em;
+  border-radius: 0.6em;
 }
 .wrapper {
   width: 100%;
-  height: 100%;
-  backdrop-filter: blur(8px);
-  z-index: 1;
+  /* height: 100%; */
+  padding: 3rem 1.8rem;
+  backdrop-filter: blur(10px);
   background-color: transparent;
+  border: 2px solid var(--opacity-blue-2);
+  box-shadow: 0 1.8em 3.7em rgba(3, 46, 87, 0.2);
   border-radius: 6px;
-  padding: 3rem 1.5rem;
+  text-align: center;
 }
 
 /* #blur {
@@ -60,33 +59,35 @@ body {
   z-index: -1;
   background: transparent;
 } */
+.shape {
+  backdrop-filter: blur(1.2em);
+  border: 2px solid var(--opacity-blue-2);
+}
 #right-circle {
   position: absolute;
   display: inline-block;
-  top: 5%;
-  right: -25%;
-  width: 50%;
-  height: 50%;
+  top: 1.8em;
+  right: -8.5em;
+  width: 13em;
+  height: 13em;
   background-color: #d5e3f44a;
   border-radius: 50%;
-  z-index: -1;
 }
 #left-circle {
   position: absolute;
   display: inline-block;
-  bottom: -15%;
-  left: -10%;
-  width: 50%;
-  height: 50%;
+  bottom: -3.7em;
+  left: -2.5em;
+  width: 11em;
+  height: 11em;
   background-color: #d5e3f44a;
   border-radius: 50%;
-  z-index: -1;
 }
 #search-form {
   display: flex;
   justify-content: space-between;
   display: grid;
-  grid-template-columns: 8fr 2fr;
+  grid-template-columns: 9fr 3fr;
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -99,14 +100,17 @@ body {
   border-bottom: 2px solid var(--white);
   color: var(--white);
 }
-::placeholder {
+#search-form input::placeholder {
   color: var(--white);
   font-weight: 300;
+}
+#search-form input:focus {
+  border-color: var(--white);
 }
 #search-btn {
   padding: 0.4rem 0.8rem;
   color: var(--dark-blue);
-  border-radius: 4px;
+  border-radius: 0.3em;
   transition: all 0.1s;
 }
 #search-btn:hover {
@@ -121,20 +125,27 @@ body {
 }
 #result h2 {
   font-size: 1.2rem;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
-  margin-bottom: 0.9rem;
+  margin: 1.25em 0;
 }
 .details {
   font-size: 0.5rem;
   text-transform: uppercase;
-  font-weight: 300;
-  letter-spacing: 0.17rem;
-  margin-bottom: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.9em;
+  line-height: 2em;
 }
 #detail-1 {
   margin-bottom: 0.4rem;
+  margin-top: -0.7em;
+}
+img {
+  margin: 0.6em 0 0 0;
+  width: 6.2em;
+  filter: drop-shadow(0 1.8em 3.7em rgba(3, 46, 87, 0.2));
 }
 
 .temps-div h3 {
@@ -172,30 +183,13 @@ body {
 }
 .message {
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
-/* background-color: #d5e3f44a;
-  width: 50%;
-  position: absolute;
-  top: 5%;
-  right: -25%;
-  height: 50%;
-  content: "";
-  border: none;
-  outline: none;
-  border-radius: 50%;
-  z-index: -2;
+@media screen and (max-width: 450px) {
+  .container {
+    font-size: 14px;
+  }
 }
-.container::after {
-  background-color: #d5e3f44a;
-  width: 50%;
-  position: absolute;
-  bottom: -15%;
-  left: -10%;
-  height: 50%;
-  content: "";
-  border: none;
-  outline: none;
-  border-radius: 50%;
-  z-index: -2; */
